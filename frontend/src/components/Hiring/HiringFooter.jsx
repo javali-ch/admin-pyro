@@ -12,6 +12,9 @@ const HiringFooter = () => {
     if (targetId === 'hiring') {
       navigate('/hiring');
       window.scrollTo(0, 0);
+    } else if (targetId === 'terms') {
+      navigate('/terms-and-conditions');
+      window.scrollTo(0, 0);
     } else {
       // Navigate to home if not already there
       navigate('/');
@@ -45,6 +48,7 @@ const HiringFooter = () => {
           <a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Solutions</a>
           <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
           <a href="#hiring" onClick={(e) => handleNavClick(e, 'hiring')}>Hiring</a>
+          <a href="#terms" onClick={(e) => handleNavClick(e, 'terms')}>Terms & Conditions</a>
         </div>
 
         <div className="hiring-social-icons">
