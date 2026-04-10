@@ -102,7 +102,7 @@ function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const currentPage = location.pathname === '/realitycheck' ? 'questionnaire' : 'home';
+  const currentPage = location.pathname;
   // Show header on reality check; hide only on specific pages
   const hideHeader = ['/welcome', '/hiring', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1'].includes(location.pathname);
   // Hide footer on reality check, hiring, and role-specific intern pages

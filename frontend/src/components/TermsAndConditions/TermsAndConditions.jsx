@@ -1,23 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './TermsAndConditions.css';
 
-const TermsAndConditions = () => {
-  return (
-    <main className="terms-page">
-      <section className="terms-container">
-        <h1>Legal Policies & Terms</h1>
-        <p className="terms-updated">Effective Date: June 2025</p>
-
-        <p>
-          This page outlines how PyroSynergy handles your data, and the terms that
-          govern service delivery, refunds, and cancellations. By engaging our services
-          or using our website, you agree to the terms described below. For questions,
-          contact us at <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>.
-        </p>
-
-        <hr />
-
-        <h2>SECTION 01: Privacy Policy</h2>
+const termsData = [
+  {
+    id: 'privacy',
+    title: 'Privacy Policy',
+    shortTitle: 'Privacy Policy',
+    content: (
+      <>
         <p>
           PyroSynergy ("we," "our," or "us") is committed to handling any information
           you share with us responsibly. This policy describes what we collect, how
@@ -92,10 +82,15 @@ const TermsAndConditions = () => {
           reflected on this page with a revised effective date. Continued use of our
           services following any update constitutes acceptance of the revised terms.
         </p>
-
-        <hr />
-
-        <h2>SECTION 02: Refund Policy</h2>
+      </>
+    ),
+  },
+  {
+    id: 'refund',
+    title: 'Refund Policy',
+    shortTitle: 'Refund Policy',
+    content: (
+      <>
         <p>
           All services offered by PyroSynergy are project-based and involve the
           allocation of time, resources, and expertise upon commencement. As such,
@@ -124,15 +119,20 @@ const TermsAndConditions = () => {
 
         <h3>Disputes</h3>
         <p>
-          Any payment disputes should be raised directly with us at
+          Any payment disputes should be raised directly with us at{' '}
           <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a> before initiating a chargeback or dispute through a
           payment provider. We are committed to addressing concerns
           professionally and promptly.
         </p>
-
-        <hr />
-
-        <h2>SECTION 03: Cancellation Policy</h2>
+      </>
+    ),
+  },
+  {
+    id: 'cancellation',
+    title: 'Cancellation Policy',
+    shortTitle: 'Cancellation Policy',
+    content: (
+      <>
         <p>
           We understand that circumstances can change. The following terms govern
           how project cancellations are handled.
@@ -176,14 +176,87 @@ const TermsAndConditions = () => {
           payments or provide necessary inputs for project progression. In such
           cases, fees for completed work remain payable.
         </p>
+      </>
+    ),
+  },
+];
 
-        <hr />
-        
+const TermsModal = ({ section, onClose }) => {
+  // Prevent scrolling on the body when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    document.body.classList.add('terms-modal-open');
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.classList.remove('terms-modal-open');
+    };
+  }, []);
+
+  if (!section) return null;
+
+  return (
+    <div className="terms-modal-overlay" onClick={onClose}>
+      <div
+        className="terms-modal-box"
+        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the box
+      >
+        <div className="terms-modal-header">
+          <h2>{section.title}</h2>
+          <button className="terms-modal-close-icon" onClick={onClose}>
+            &times;
+          </button>
+        </div>
+        <div className="terms-modal-content">
+          {section.content}
+        </div>
+        <div className="terms-modal-footer">
+          <button className="terms-modal-close-btn" onClick={onClose}>
+            Take Me Back
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const TermsAndConditions = () => {
+  const [activeSection, setActiveSection] = useState(null);
+
+  return (
+    <main className="terms-page">
+      <section className="terms-container">
+        <h1>Legal Policies & Terms</h1>
+        <p className="terms-updated">Effective Date: June 2025</p>
+
+        <p>
+          This page outlines how PyroSynergy handles your data, and the terms that
+          govern service delivery, refunds, and cancellations. By engaging our services
+          or using our website, you agree to the terms described below. For questions,
+          contact us at <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>.
+        </p>
+
+        <div className="terms-grid">
+          {termsData.map((section) => (
+            <div
+              key={section.id}
+              className="terms-card"
+              onClick={() => setActiveSection(section)}
+            >
+              {section.title}
+            </div>
+          ))}
+        </div>
+
         <p className="copyright">
           © 2025 PyroSynergy. All rights reserved. <br />
           <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>
         </p>
       </section>
+
+      {/* Render the modal when a section is selected */}
+      {activeSection && (
+        <TermsModal section={activeSection} onClose={() => setActiveSection(null)} />
+      )}
     </main>
   );
 };
