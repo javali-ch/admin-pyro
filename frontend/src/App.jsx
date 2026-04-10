@@ -21,6 +21,7 @@ import SalesIntern from "./components/Hiring/SalesIntern.jsx";
 import ContentStrategist from "./components/Hiring/ContentStrategist.jsx";
 import SocialIntern from "./components/Hiring/SocialIntern.jsx";
 import UIUXVDIntern from "./components/Hiring/UIUXVDIntern.jsx";
+import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions.jsx";
 
 // Asset Imports
 import logo1 from "./assets/viali.png";
@@ -290,6 +291,7 @@ function App() {
           <Route path="/realitycheck" element={<Questionnaire />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/hiring" element={<Hiring />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/hiring/copywriter_intern_1" element={<Copywriter />} />
           <Route path="/hiring/videsign_intern_1" element={<VisualDesigner />} />
           <Route path="/hiring/uxdesign_intern_1" element={<UXDesigner />} />
