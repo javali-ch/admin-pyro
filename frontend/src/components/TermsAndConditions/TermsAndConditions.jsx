@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './TermsAndConditions.css';
+import HiringFooter from '../Hiring/HiringFooter';
 
 const termsData = [
   {
@@ -223,41 +224,44 @@ const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState(null);
 
   return (
-    <main className="terms-page">
-      <section className="terms-container">
-        <h1>Legal Policies & Terms</h1>
-        <p className="terms-updated">Effective Date: June 2025</p>
+    <>
+      <main className="terms-page">
+        <section className="terms-container">
+          <h1>Legal Policies &amp; Terms</h1>
+          <p className="terms-updated">Effective Date: June 2025</p>
 
-        <p>
-          This page outlines how PyroSynergy handles your data, and the terms that
-          govern service delivery, refunds, and cancellations. By engaging our services
-          or using our website, you agree to the terms described below. For questions,
-          contact us at <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>.
-        </p>
+          <p>
+            This page outlines how PyroSynergy handles your data, and the terms that
+            govern service delivery, refunds, and cancellations. By engaging our services
+            or using our website, you agree to the terms described below. For questions,
+            contact us at <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>.
+          </p>
 
-        <div className="terms-grid">
-          {termsData.map((section) => (
-            <div
-              key={section.id}
-              className="terms-card"
-              onClick={() => setActiveSection(section)}
-            >
-              {section.title}
-            </div>
-          ))}
-        </div>
+          <div className="terms-grid">
+            {termsData.map((section) => (
+              <div
+                key={section.id}
+                className="terms-card"
+                onClick={() => setActiveSection(section)}
+              >
+                {section.title}
+              </div>
+            ))}
+          </div>
 
-        <p className="copyright">
-          © 2025 PyroSynergy. All rights reserved. <br />
-          <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>
-        </p>
-      </section>
+          <p className="copyright">
+            © 2025-2026 PyroSynergy. All rights reserved. <br />
+            <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>
+          </p>
+        </section>
 
-      {/* Render the modal when a section is selected */}
-      {activeSection && (
-        <TermsModal section={activeSection} onClose={() => setActiveSection(null)} />
-      )}
-    </main>
+        {/* Render the modal when a section is selected */}
+        {activeSection && (
+          <TermsModal section={activeSection} onClose={() => setActiveSection(null)} />
+        )}
+      </main>
+      <HiringFooter />
+    </>
   );
 };
 
