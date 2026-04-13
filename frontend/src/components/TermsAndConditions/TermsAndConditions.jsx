@@ -250,7 +250,7 @@ const TermsAndConditions = () => {
           </div>
 
           <p className="copyright">
-            © 2025-2026 PyroSynergy. All rights reserved. <br />
+            © 2025-26 PyroSynergy. All rights reserved. <br />
             <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>
           </p>
         </section>

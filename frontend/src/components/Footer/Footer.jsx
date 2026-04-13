@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="footer-names">
           <img src={logo} alt="PuroSynergy" className="brand-logo-img" />
           <span className="brand-copyright-text">
-            © Copyright 2025-2026 Pyrosynergy LLP. All rights reserved.
+            © Copyright 2025-26 PyroSynergy LLP. All rights reserved.
           </span>
         </div>
 
