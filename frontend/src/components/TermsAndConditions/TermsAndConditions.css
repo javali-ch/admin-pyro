@@ -310,5 +310,5 @@
 
 /* Hide navigation links when terms modal is open */
 body.terms-modal-open .main-navigation {
-  display: none !important;
+  display: none ;
 }

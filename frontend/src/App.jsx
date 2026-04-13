@@ -291,7 +291,6 @@ function App() {
           <Route path="/realitycheck" element={<Questionnaire />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/hiring" element={<Hiring />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/hiring/copywriter_intern_1" element={<Copywriter />} />
           <Route path="/hiring/videsign_intern_1" element={<VisualDesigner />} />
           <Route path="/hiring/uxdesign_intern_1" element={<UXDesigner />} />
@@ -300,6 +299,7 @@ function App() {
           <Route path="/hiring/content_intern_1" element={<Navigate to="/hiring" replace />} />
           <Route path="/hiring/social_intern_1" element={<SocialIntern />} />
           <Route path="/hiring/uiuxvd_intern_1" element={<UIUXVDIntern />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/" element={
             <>
               <Hero 

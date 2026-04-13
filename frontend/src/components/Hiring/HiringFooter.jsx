@@ -8,7 +8,7 @@ const HiringFooter = () => {
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-    
+
     if (targetId === 'hiring') {
       navigate('/hiring');
       window.scrollTo(0, 0);
@@ -18,7 +18,7 @@ const HiringFooter = () => {
     } else {
       // Navigate to home if not already there
       navigate('/');
-      
+
       // After navigating, scroll to the section
       setTimeout(() => {
         if (targetId !== 'home') {
@@ -39,7 +39,7 @@ const HiringFooter = () => {
         <div className="hiring-footer-names">
           <img src={logo} alt="PuroSynergy" className="hiring-brand-logo-img" />
           <span className="hiring-brand-copyright-text">
-            © Copyright 2025 Pyrosynergy LLP. All rights reserved.
+            © Copyright 2025-26 PyroSynergy LLP. All rights reserved.
           </span>
         </div>
 
@@ -48,7 +48,7 @@ const HiringFooter = () => {
           <a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Solutions</a>
           <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
           <a href="#hiring" onClick={(e) => handleNavClick(e, 'hiring')}>Hiring</a>
-          <a href="#terms" onClick={(e) => handleNavClick(e, 'terms')}>Terms & Conditions</a>
+          <a href="#terms" onClick={(e) => handleNavClick(e, 'terms')}>Policy Pages</a>
         </div>
 
         <div className="hiring-social-icons">
