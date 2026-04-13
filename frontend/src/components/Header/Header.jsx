@@ -14,8 +14,8 @@ const Header = ({
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     
-    // If we're on questionnaire page, navigate back to home first
-    if (currentPage === 'questionnaire') {
+    // If we're not on the home page, navigate back to home first
+    if (currentPage !== '/') {
       handleNavigateToHome();
       // After navigating to home, scroll to the section
       setTimeout(() => {

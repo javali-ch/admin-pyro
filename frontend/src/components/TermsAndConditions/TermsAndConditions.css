@@ -1,0 +1,314 @@
+.terms-page {
+  min-height: calc(100vh - 140px);
+  padding: 8rem 1.5rem 4rem;
+  background: linear-gradient(135deg, #0d0b02 0%, #1a1a2e 20%, #16213e 40%, #0f0f23 60%, #0d0b02 100%);
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.terms-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(211, 4, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 60, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(61, 114, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  animation: termsBackgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes termsBackgroundPulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.terms-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(211, 4, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(0, 60, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(61, 114, 255, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: termsFloatingParticles 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes termsFloatingParticles {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+.terms-container {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #f0f0f0;
+  font-family: "Albert Sans", sans-serif;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.terms-container h1 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #ffffff;
+}
+
+.terms-updated {
+  margin-top: 0.75rem;
+  color: #a5a5a5;
+  font-size: 0.95rem;
+}
+
+.terms-container h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.2rem;
+  color: #3d72ff;
+}
+
+.terms-container p {
+  margin: 0;
+  color: #d4d4d4;
+}
+
+@media (max-width: 767px) {
+  .terms-page {
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+  }
+
+  .terms-container h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* NEW: Interactive Grid Layout for Sections */
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.terms-card {
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  min-height: 120px;
+}
+
+.terms-card:hover {
+  border-color: #3d72ff;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(61, 114, 255, 0.3);
+}
+
+/* Modal Styling */
+.terms-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+  padding: 1rem;
+}
+
+.terms-modal-box {
+  background: rgba(20, 20, 35, 0.85); /* Slightly less transparent than questionnaire to read text */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  max-width: 800px;
+  width: 95%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95);
+  animation: popIn 0.3s 0.1s forwards;
+  position: relative;
+}
+
+.terms-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.terms-modal-header h2 {
+  margin: 0;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1.5rem;
+  color: #3d72ff;
+}
+
+.terms-modal-close-icon {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  line-height: 1;
+}
+
+.terms-modal-close-icon:hover {
+  opacity: 1;
+}
+
+.terms-modal-content {
+  overflow-y: auto;
+  padding-right: 1rem;
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(61, 114, 255, 0.5) transparent;
+}
+
+.terms-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terms-modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(61, 114, 255, 0.5);
+  border-radius: 4px;
+}
+
+.terms-modal-content p,
+.terms-modal-content ul {
+  color: #d4d4d4;
+  font-family: "Albert Sans", sans-serif;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.terms-modal-content h3 {
+  color: #fff;
+  font-family: "Bricolage Grotesque", sans-serif;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.terms-modal-content li {
+  margin-bottom: 0.5rem;
+}
+
+.terms-modal-footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.terms-modal-close-btn {
+  padding: 0.8rem 2.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #0046ff 0%, #002a99 100%);
+  color: #fff;
+  border: 2px solid #3d72ff;
+  box-shadow: 0 4px 15px rgba(0, 70, 255, 0.3);
+}
+
+.terms-modal-close-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 70, 255, 0.5);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  .terms-modal-box {
+    padding: 1.5rem 1.5rem;
+    max-height: 90vh;
+  }
+  .terms-modal-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Hyperlink Styling */
+.terms-page a,
+.terms-modal-content a {
+  color: #55c2ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.terms-page a:hover,
+.terms-modal-content a:hover {
+  color: #b1e0ff;
+  text-shadow: 0 0 8px rgba(85, 194, 255, 0.5);
+  text-decoration: underline;
+}
+
+/* Hide navigation links when terms modal is open */
+body.terms-modal-open .main-navigation {
+  display: none ;
+}
