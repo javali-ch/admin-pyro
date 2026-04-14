@@ -22,6 +22,7 @@ import ContentStrategist from "./components/Hiring/ContentStrategist.jsx";
 import SocialIntern from "./components/Hiring/SocialIntern.jsx";
 import UIUXVDIntern from "./components/Hiring/UIUXVDIntern.jsx";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions.jsx";
+import FAQ from "./components/FAQ/FAQ.jsx";
 
 // Asset Imports
 import logo1 from "./assets/viali.png";
@@ -93,9 +94,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Add this line
   const [expandedCardIndex, setExpandedCardIndex] = useState(null); // Add this line
   const navRef = useRef(null);
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [formStatus, setFormStatus] = useState("");
   const [highlightedIndex, setHighlightedIndex] = useState(0);
   const [closingCardIndex, setClosingCardIndex] = useState(null);
   const closeTimerRef = useRef(null); // To manage the timeout
@@ -195,32 +193,6 @@ function App() {
     setIsMenuOpen(false);
   };
 
-  // Form Submission Handler
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus("Submitting...");
-    if (!email || !message) {
-      setFormStatus("❌ Please fill in both fields.");
-      return;
-    }
-    try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbxfJZIHACfhDoy9ZtKBdi-vIgO0vFqVGdP3VpmvdSXtHVuJUHYlNDpUYUPzxLSCysVyHA/exec",
-        {
-          method: "POST",
-          body: JSON.stringify({ email, message }),
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      setFormStatus("🚀 Message sent! We will get back to you soon.");
-      setEmail("");
-      setMessage("");
-    } catch (error) {
-      console.error("Form submission network error: ", error);
-      setFormStatus(`❌ A network error occurred. Please try again.`);
-    }
-  };
 
   // General useEffect Hooks
   useEffect(() => {
@@ -239,12 +211,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (formStatus) {
-      const timer = setTimeout(() => setFormStatus(""), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [formStatus]);
 
   // Handle escape key to close expanded card
   useEffect(() => {
@@ -321,10 +287,9 @@ function App() {
   
               
   
-              <Contact 
-                formStatus={formStatus}
-                setFormStatus={setFormStatus}
-              />
+              <FAQ openCalendarPopup={openCalendarPopup} />
+
+              <Contact />
             </>
           } />
         </Routes>
