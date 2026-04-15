@@ -62,18 +62,23 @@ const Header = ({
             </a>
           </li>
           <li>
-            <a 
-              href="#services" 
+            <a
+              href="#services"
               onClick={(e) => handleNavClick(e, 'services')}
             >
               Solutions
             </a>
           </li>
           <li>
-            <a 
-              href="#contact" 
-              onClick={(e) => handleNavClick(e, 'contact')}
+            <a
+              href="#faq"
+              onClick={(e) => handleNavClick(e, 'faq')}
             >
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a href="mailto:py@pyrosynergy.com">
               Contact
             </a>
           </li>
@@ -101,18 +106,23 @@ const Header = ({
               </a>
             </li>
             <li>
-              <a 
-                href="#services" 
+              <a
+                href="#services"
                 onClick={(e) => handleNavClick(e, 'services')}
               >
                 Solutions
               </a>
             </li>
             <li>
-              <a 
-                href="#contact" 
-                onClick={(e) => handleNavClick(e, 'contact')}
+              <a
+                href="#faq"
+                onClick={(e) => handleNavClick(e, 'faq')}
               >
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a href="mailto:py@pyrosynergy.com" onClick={handleLinkClick}>
                 Contact
               </a>
             </li>

@@ -32,7 +32,7 @@ const FAQ = ({ openCalendarPopup }) => {
   };
 
   return (
-    <section className="faq-section">
+    <section id="faq" className="faq-section">
       {/* Decorative blurs */}
       <div className="faq-blur faq-blur-1"></div>
       <div className="faq-blur faq-blur-2"></div>
