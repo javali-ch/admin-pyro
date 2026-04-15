@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Footer.css';
-import grids from "../../assets/Frame 41.png";
 import logo from '../../assets/Frame 2.svg';
 
 const Footer = () => {
@@ -36,14 +35,6 @@ const Footer = () => {
 
   return (
     <>
-      <div className="decorative-grid-container">
-        <img
-          src={grids}
-          alt="Decorative grids"
-          className="decorative-grid-image"
-        />
-      </div>
-
       <footer className="footer">
         <div className="footer-names">
           <img src={logo} alt="PuroSynergy" className="brand-logo-img" />
