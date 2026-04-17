@@ -74,7 +74,7 @@ const Header = ({
               href="#faq"
               onClick={(e) => handleNavClick(e, 'faq')}
             >
-              FAQ
+              FAQs
             </a>
           </li>
           <li>

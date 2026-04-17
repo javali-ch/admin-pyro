@@ -21,7 +21,10 @@ import SalesIntern from "./components/Hiring/SalesIntern.jsx";
 import ContentStrategist from "./components/Hiring/ContentStrategist.jsx";
 import SocialIntern from "./components/Hiring/SocialIntern.jsx";
 import UIUXVDIntern from "./components/Hiring/UIUXVDIntern.jsx";
-import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions.jsx";
+import PolicyPages from "./components/PolicyPages/PolicyPages.jsx";
+import PrivacyPolicy from "./components/PolicyPages/PrivacyPolicy.jsx";
+import RefundPolicy from "./components/PolicyPages/RefundPolicy.jsx";
+import CancellationPolicy from "./components/PolicyPages/CancellationPolicy.jsx";
 import FAQ from "./components/FAQ/FAQ.jsx";
 
 // Asset Imports
@@ -102,9 +105,9 @@ function App() {
   const location = useLocation();
   const currentPage = location.pathname;
   // Show header on reality check; hide only on specific pages
-  const hideHeader = ['/welcome', '/hiring', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1'].includes(location.pathname);
+  const hideHeader = ['/welcome', '/hiring', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy'].includes(location.pathname);
   // Hide footer on reality check, hiring, and role-specific intern pages
-  const hideFooter = ['/welcome', '/realitycheck', '/hiring', '/terms-and-conditions', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1'].includes(location.pathname);
+  const hideFooter = ['/welcome', '/realitycheck', '/hiring', '/policy-pages', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1'].includes(location.pathname);
 
   // Effect to cycle through the highlighted words
   useEffect(() => {
@@ -265,7 +268,10 @@ function App() {
           <Route path="/hiring/content_intern_1" element={<Navigate to="/hiring" replace />} />
           <Route path="/hiring/social_intern_1" element={<SocialIntern />} />
           <Route path="/hiring/uiuxvd_intern_1" element={<UIUXVDIntern />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/policy-pages" element={<PolicyPages />} />
+          <Route path="/policy-pages/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/policy-pages/refund-policy" element={<RefundPolicy />} />
+          <Route path="/policy-pages/cancellation-policy" element={<CancellationPolicy />} />
           <Route path="/" element={
             <>
               <Hero 
