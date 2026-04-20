@@ -14,7 +14,7 @@ const HiringFooter = () => {
       navigate('/hiring');
       window.scrollTo(0, 0);
     } else if (targetId === 'terms') {
-      navigate('/terms-and-conditions');
+      navigate('/policy-pages');
       window.scrollTo(0, 0);
     } else {
       // Navigate to home if not already there
