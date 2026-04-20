@@ -8,8 +8,8 @@ const faqs = [
       <>
         <p>We offer growth services (we like to comprehensively call them &ldquo;solutions&rdquo;), which cover both strategy and execution.</p>
         <ul>
-          <li><strong>Strategy</strong> involves getting a deep understanding of your business (and its bottlenecks) through our <strong>PyroStack</strong> framework.</li>
-          <li><strong>Execution</strong> involves everything needed to implement the strategy; including UI/UX design, brand identity, web development, content design, social media management, AI creatives, workflows and automations.</li>
+          <li><strong>Strategy:</strong><br />Involves getting a deep understanding of your business (and its bottlenecks) through our <strong>PyroStack</strong> framework.</li>
+          <li><strong>Execution:</strong><br />Involves everything needed to implement the strategy; including UI/UX design, brand identity, web development, content design, social media management, AI creatives, workflows and automations.</li>
         </ul>
       </>
     )
