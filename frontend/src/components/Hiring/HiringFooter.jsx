@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HiringFooter.css';
 import logo from '../../assets/Frame 2.svg';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const HiringFooter = () => {
   const navigate = useNavigate();
@@ -58,10 +59,7 @@ const HiringFooter = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-              alt="Instagram"
-            />
+            <FaInstagram className="social-icon" />
           </a>
           <a
             href="https://www.linkedin.com/company/pyrosynergy/"
@@ -69,10 +67,7 @@ const HiringFooter = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
-              alt="LinkedIn"
-            />
+            <FaLinkedin className="social-icon" />
           </a>
         </div>
       </div>

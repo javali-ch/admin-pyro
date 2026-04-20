@@ -4,11 +4,24 @@ import './FAQ.css';
 const faqs = [
   {
     question: 'What services do you offer?',
-    answer: 'We offer growth services (we like to comprehensively call them "solutions"), which cover both strategy and execution. Strategy involves getting a deep understanding of your business (and its bottlenecks) through our PyroStack framework. Execution involves everything needed to implement the strategy; including UI/UX design, brand identity, web development, content design, social media management, AI creatives, workflows and automations.'
+    answer: (
+      <>
+        <p>We offer growth services (we like to comprehensively call them &ldquo;solutions&rdquo;), which cover both strategy and execution.</p>
+        <ul>
+          <li><strong>Strategy</strong> involves getting a deep understanding of your business (and its bottlenecks) through our <strong>PyroStack</strong> framework.</li>
+          <li><strong>Execution</strong> involves everything needed to implement the strategy; including UI/UX design, brand identity, web development, content design, social media management, AI creatives, workflows and automations.</li>
+        </ul>
+      </>
+    )
   },
   {
     question: 'Why PyroSynergy, when other agencies exist?',
-    answer: 'Most agencies skip the strategy and sell you execution. We understand the need for empathy, especially when you\'re early-stage. PyroSynergy identifies and helps 0-to-traction businesses building a solid, market-viable product who needs growth strategies & execution.'
+    answer: (
+      <>
+        <p>Most agencies skip the strategy and sell you execution. We understand the need for <strong>empathy</strong>, especially when you&rsquo;re early-stage.</p>
+        <p>PyroSynergy identifies and helps 0-to-traction businesses building a solid, market-viable product who needs growth strategies &amp; execution.</p>
+      </>
+    )
   },
   {
     question: 'How does the pricing work?',
@@ -67,7 +80,7 @@ const FAQ = ({ openCalendarPopup }) => {
                 </span>
               </button>
               <div className="faq-answer-wrapper">
-                <p className="faq-answer">{faq.answer}</p>
+                <div className="faq-answer">{faq.answer}</div>
               </div>
             </div>
           ))}

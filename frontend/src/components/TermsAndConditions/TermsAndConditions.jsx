@@ -249,9 +249,13 @@ const TermsAndConditions = () => {
             ))}
           </div>
 
+          <address className="terms-address">
+            PyroSynergy LLP<br />
+            Ground Floor, 16-11-741/C/A/39, SBH Colony, Moosarambagh, Hyderabad, Telangana, India - 500036
+          </address>
+
           <p className="copyright">
             © 2025-26 PyroSynergy. All rights reserved. <br />
-            <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>
           </p>
         </section>
 

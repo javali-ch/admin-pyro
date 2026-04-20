@@ -80,28 +80,26 @@
 .hiring-social-icons {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .hiring-social-icons a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease;
+  text-decoration: none;
+  color: #a5a5a5;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .hiring-social-icons a:hover {
-  opacity: 0.7;
-}
-
-.hiring-social-icons img {
-  height: 1.5rem;
-  filter: brightness(0) invert(1) opacity(0.7);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.hiring-social-icons a:hover img {
-  filter: brightness(0) invert(1) opacity(1) drop-shadow(0 0 8px #3d72ff);
+  color: #ffffff;
   transform: scale(1.15);
+}
+
+.hiring-social-icons .social-icon {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 @media (max-width: 767px) {
