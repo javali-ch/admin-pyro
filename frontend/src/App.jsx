@@ -26,6 +26,7 @@ import PrivacyPolicy from "./components/PolicyPages/PrivacyPolicy.jsx";
 import RefundPolicy from "./components/PolicyPages/RefundPolicy.jsx";
 import CancellationPolicy from "./components/PolicyPages/CancellationPolicy.jsx";
 import FAQ from "./components/FAQ/FAQ.jsx";
+import NotFound from "./components/NotFound/NotFound.jsx";
 
 // Asset Imports
 import logo1 from "./assets/viali.png";
@@ -105,9 +106,11 @@ function App() {
   const location = useLocation();
   const currentPage = location.pathname;
   // Show header on reality check; hide only on specific pages
-  const hideHeader = ['/welcome', '/hiring', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy'].includes(location.pathname);
+  const knownPaths = ['/', '/welcome', '/realitycheck', '/hiring', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1', '/policy-pages', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy'];
+  const is404 = !knownPaths.includes(location.pathname);
+  const hideHeader = is404 || ['/welcome', '/hiring', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy'].includes(location.pathname);
   // Hide footer on reality check, hiring, and role-specific intern pages
-  const hideFooter = ['/welcome', '/realitycheck', '/hiring', '/policy-pages', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1'].includes(location.pathname);
+  const hideFooter = is404 || ['/welcome', '/realitycheck', '/hiring', '/policy-pages', '/policy-pages/privacy-policy', '/policy-pages/refund-policy', '/policy-pages/cancellation-policy', '/hiring/copywriter_intern_1', '/hiring/content_intern_1', '/hiring/social_intern_1', '/hiring/videsign_intern_1', '/hiring/uxdesign_intern_1', '/hiring/nocodeweb_intern_1', '/hiring/sales_intern_1', '/hiring/uiuxvd_intern_1'].includes(location.pathname);
 
   // Effect to cycle through the highlighted words
   useEffect(() => {
@@ -298,6 +301,7 @@ function App() {
               <Contact />
             </>
           } />
+          <Route path="*" element={<NotFound />} />
         </Routes>
   {!hideFooter && <Footer />}
       </div>
