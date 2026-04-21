@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 import logo from '../../assets/Frame 2.svg';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const Footer = () => {
         <div className="footer-links">
           <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>Home</a>
           <a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Solutions</a>
-          <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
+          <a href="mailto:py@pyrosynergy.com">Contact</a>
           <a href="#hiring" onClick={(e) => handleNavClick(e, 'hiring')}>Hiring</a>
           <a href="#terms" onClick={(e) => handleNavClick(e, 'terms')}>Policy Pages</a>
         </div>
@@ -55,20 +56,18 @@ const Footer = () => {
           <a
             href="https://www.instagram.com/pyrosynergy/"
             aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <img
-              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-              alt="Instagram"
-            />
+            <FaInstagram className="social-icon" />
           </a>
           <a
             href="https://www.linkedin.com/company/pyrosynergy/"
             aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <img
-              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
-              alt="LinkedIn"
-            />
+            <FaLinkedin className="social-icon" />
           </a>
         </div>
       </footer>
