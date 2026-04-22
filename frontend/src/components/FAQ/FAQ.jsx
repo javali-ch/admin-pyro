@@ -82,6 +82,14 @@ const FAQ = ({ openCalendarPopup }) => {
               <div className="faq-answer-wrapper">
                 <div className="faq-answer">{faq.answer}</div>
               </div>
+              {openIndex === index && (
+                <button
+                  type="button"
+                  className="faq-collapse-strip"
+                  aria-label="Collapse answer"
+                  onClick={() => toggle(index)}
+                />
+              )}
             </div>
           ))}
         </div>
