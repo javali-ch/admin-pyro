@@ -7,6 +7,7 @@ const policyCards = [
   { id: 'privacy', title: 'Privacy Policy', route: '/policy-pages/privacy-policy' },
   { id: 'refund', title: 'Refund Policy', route: '/policy-pages/refund-policy' },
   { id: 'cancellation', title: 'Cancellation Policy', route: '/policy-pages/cancellation-policy' },
+  { id: 'terms', title: 'Terms And Conditions', route: '/terms-and-conditions' },
 ];
 
 const PolicyPages = () => {
@@ -38,9 +39,13 @@ const PolicyPages = () => {
             ))}
           </div>
 
+          <address className="terms-address">
+            PyroSynergy LLP<br />
+            Ground Floor, 16-11-741/C/A/39, SBH Colony, Moosarambagh, Hyderabad, Telangana, India - 500036
+          </address>
+
           <p className="copyright">
             © 2025-26 PyroSynergy. All rights reserved. <br />
-            <a href="mailto:py@pyrosynergy.com">py@pyrosynergy.com</a>
           </p>
         </section>
       </main>
