@@ -1,44 +1,45 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Welcome.css';
+import { FaInstagram, FaLinkedin, FaGlobe, FaCalendarAlt, FaWpforms } from 'react-icons/fa';
 
 const Welcome = () => {
   const navigate = useNavigate();
-  
+
   const links = [
     {
       title: 'PyroReality Check',
       description: 'The 3-minute business debrief',
-      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleforms.svg',
+      icon: <FaWpforms />,
       url: '/realitycheck',
       isExternal: false
     },
     {
       title: 'Website',
       description: 'Visit our main website',
-      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googlechrome.svg',
-      url: '/', 
+      icon: <FaGlobe />,
+      url: '/',
       isExternal: false
     },
     {
       title: 'Book a Call',
       description: 'Schedule a strategy call',
-      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googlecalendar.svg',
-      url: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0iZ6GBUpEp6xEXcYQ0wZLryUc6bprkId2iHVJjJF88E3JTJGM917FiwtH6mwtuwUuyOVr2Whwm?gv=true', // Replace with actual calendar link
+      icon: <FaCalendarAlt />,
+      url: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0iZ6GBUpEp6xEXcYQ0wZLryUc6bprkId2iHVJjJF88E3JTJGM917FiwtH6mwtuwUuyOVr2Whwm?gv=true',
       isExternal: true
     },
     {
       title: 'Instagram',
       description: 'Follow us on Instagram',
-      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg',
-      url: 'https://www.instagram.com/pyrosynergy', // Replace with Instagram link
+      icon: <FaInstagram />,
+      url: 'https://www.instagram.com/pyrosynergy',
       isExternal: true
     },
     {
       title: 'LinkedIn',
       description: 'Connect with us professionally',
-      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg',
-      url: 'https://www.linkedin.com/company/pyrosynergy/posts/?feedView=all', // Replace with LinkedIn link
+      icon: <FaLinkedin />,
+      url: 'https://www.linkedin.com/company/pyrosynergy/posts/?feedView=all',
       isExternal: true
     }
   ];
@@ -91,15 +92,7 @@ const Welcome = () => {
             >
               <div className="pyro-nav-content">
                 <div className="pyro-nav-icon">
-                  {link.icon.startsWith('http') ? (
-                    <img 
-                      src={link.icon} 
-                      alt={`${link.title} icon`} 
-                      className="pyro-nav-icon-img"
-                    />
-                  ) : (
-                    link.icon
-                  )}
+                  {link.icon}
                 </div>
                 <div className="pyro-nav-text">
                   <h3 className="pyro-nav-title">{link.title}</h3>
